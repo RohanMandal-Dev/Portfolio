@@ -1,5 +1,5 @@
 import { FaArrowRight, FaDownload } from "react-icons/fa";
-import "../styles/Profile.css";
+import "../Styles/Profile.css";
 
 function Profile() {
   return (

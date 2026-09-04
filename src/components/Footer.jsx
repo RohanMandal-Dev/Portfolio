@@ -5,7 +5,7 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 
-import "../styles/Footer.css";
+import "../Styles/Footer.css";
 
 function Footer() {
   const currentYear = new Date().getFullYear();

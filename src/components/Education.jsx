@@ -3,7 +3,7 @@ import {
   FaSchool,
 } from "react-icons/fa";
 
-import "../styles/Education.css";
+import "../Styles/Education.css";
 
 function Education() {
   const education = [

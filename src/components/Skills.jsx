@@ -24,7 +24,7 @@ import {
   SiPostman,
 } from "react-icons/si";
 
-import "../styles/Skills.css";
+import "../Styles/Skills.css";
 
 function Skills() {
   const skillCategories = [
