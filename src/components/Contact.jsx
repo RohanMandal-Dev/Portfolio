@@ -5,7 +5,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-import "../Styles/Contact.css";
+import "../styles/Contact.css";
 
 function Contact() {
   const contactDetails = [

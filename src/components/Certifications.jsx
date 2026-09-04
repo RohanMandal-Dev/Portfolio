@@ -1,5 +1,5 @@
 import { FaCertificate, FaExternalLinkAlt } from "react-icons/fa";
-import "../Styles/Certifications.css";
+import "../styles/Certifications.css";
 
 function Certifications() {
   const certifications = [
