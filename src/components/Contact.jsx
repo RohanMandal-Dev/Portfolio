@@ -3,6 +3,7 @@ import {
   FaPhone,
   FaLinkedinIn,
   FaGithub,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 import "../Styles/Contact.css";
@@ -18,8 +19,14 @@ function Contact() {
     {
       icon: <FaPhone />,
       label: "Phone",
-      value: "+91 90824 56966",
+      value: "+91 9082456966",
       link: "tel:+919082456966",
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      label: "Location",
+      value: "Mumbai, Maharashtra, India",
+      link: "https://www.google.com/maps/search/?api=1&query=Mumbai%2C+Maharashtra%2C+India",
     },
     {
       icon: <FaLinkedinIn />,
@@ -38,7 +45,6 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="section-container">
-
         <div className="section-heading">
           <p>GET IN TOUCH</p>
 
@@ -48,19 +54,15 @@ function Contact() {
           </h2>
         </div>
 
-        {/* Introduction - full width */}
         <p className="contact-intro">
-          I'm currently open to opportunities and interested in
-          connecting with teams where I can contribute, learn, and
-          grow as a developer.
+          I'm a Software Developer interested in building practical
+          applications, solving problems, and learning new technologies.
+          I'm open to opportunities where I can contribute my technical
+          skills, collaborate with a team, and grow professionally.
         </p>
 
-        {/* Two-column content */}
         <div className="contact-content">
-
-          {/* Contact Information */}
           <div className="contact-info">
-
             <div className="contact-list">
               {contactDetails.map((item) => (
                 <a
@@ -68,12 +70,12 @@ function Contact() {
                   key={item.label}
                   className="contact-item"
                   target={
-                    item.label === "LinkedIn" || item.label === "GitHub"
+                    ["LinkedIn", "GitHub", "Location"].includes(item.label)
                       ? "_blank"
                       : undefined
                   }
                   rel={
-                    item.label === "LinkedIn" || item.label === "GitHub"
+                    ["LinkedIn", "GitHub", "Location"].includes(item.label)
                       ? "noopener noreferrer"
                       : undefined
                   }
@@ -94,12 +96,9 @@ function Contact() {
                 </a>
               ))}
             </div>
-
           </div>
 
-          {/* Email Card */}
           <div className="contact-card">
-
             <div className="contact-card-icon">
               <FaEnvelope />
             </div>
@@ -107,8 +106,8 @@ function Contact() {
             <h3>Have an opportunity?</h3>
 
             <p>
-              I'd be happy to discuss a role, collaboration, or
-              interesting project.
+              I'd be happy to discuss a job opportunity, collaboration,
+              or an interesting software development project.
             </p>
 
             <a
@@ -120,11 +119,8 @@ function Contact() {
               Send Me an Email
               <FaEnvelope />
             </a>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

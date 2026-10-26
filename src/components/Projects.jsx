@@ -1,17 +1,14 @@
 import {
-  FaGithub,
-  FaExternalLinkAlt,
   FaPython,
   FaFileExcel,
   FaReact,
-  FaNodeJs,
 } from "react-icons/fa";
 
 import {
   SiFlask,
   SiSelenium,
   SiPandas,
-  SiMongodb,
+  SiPhp,
   SiMysql,
 } from "react-icons/si";
 
@@ -24,7 +21,7 @@ function Projects() {
       subtitle: "Smart WhatsApp Automation Platform",
 
       description:
-        "A Flask-based web application for automating bulk WhatsApp Web messaging using Selenium and Python, with real-time start, pause, and resume controls. Integrated Pandas and OpenPyXL for Excel contact processing, validation, retries, and execution reports.",
+        "Developed a web-based messaging automation application using Python, Flask, and Selenium. The application processes contact data from Excel files and provides start, stop, and resume controls, message status tracking, retry handling, and Excel report export.",
 
       technologies: [
         {
@@ -48,21 +45,14 @@ function Projects() {
           icon: <FaFileExcel />,
         },
       ],
-
-      image: "/projects/swap.png",
-
-      github: "#",
-      demo: "#",
-
-      featured: true,
     },
 
     {
-      title: "AyuVision",
-      subtitle: "AI-Powered Plant Identification Web Application",
+      title: "AyurVision",
+      subtitle: "AI-Powered Ayurvedic Plant Identification",
 
       description:
-        "A full-stack web application built with React.js and Node.js to identify Ayurvedic plants from uploaded images and digitally preserve traditional plant knowledge. Includes a Python-based AI plant identification module and database integration using MongoDB and MySQL.",
+        "Developed a web application that identifies plants from uploaded images using the Plant.id API and presents relevant information, including scientific names, Ayurvedic uses, benefits, and side effects. Implemented PHP backend APIs and MySQL database integration, with features for saving identified plants to a personal library and managing plant records through an admin panel.",
 
       technologies: [
         {
@@ -70,45 +60,20 @@ function Projects() {
           icon: <FaReact />,
         },
         {
-          name: "Node.js",
-          icon: <FaNodeJs />,
-        },
-        {
-          name: "Python",
-          icon: <FaPython />,
-        },
-        {
-          name: "MongoDB",
-          icon: <SiMongodb />,
+          name: "PHP",
+          icon: <SiPhp />,
         },
         {
           name: "MySQL",
           icon: <SiMysql />,
         },
       ],
-
-      image: "/projects/ayuvision.png",
-
-      github: "#",
-      demo: "#",
-
-      featured: false,
     },
   ];
-
-  const featuredProject = projects.find(
-    (project) => project.featured
-  );
-
-  const otherProjects = projects.filter(
-    (project) => !project.featured
-  );
 
   return (
     <section className="projects" id="projects">
       <div className="section-container">
-
-        {/* Section Heading */}
         <div className="section-heading">
           <p>MY WORK</p>
 
@@ -118,167 +83,45 @@ function Projects() {
           </h2>
         </div>
 
-
-        {/* Featured Project */}
-        {featuredProject && (
-          <div className="featured-project-wrapper">
-
-            <article className="project-card project-featured">
-
-              <div className="project-image">
-                <img
-                  src={featuredProject.image}
-                  alt={`${featuredProject.title} project preview`}
-                />
-              </div>
-
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <article
+              className="project-card"
+              key={project.title}
+            >
               <div className="project-content">
-
                 <p className="project-label">
-                  FEATURED PROJECT
+                  {index === 0
+                    ? "FEATURED PROJECT"
+                    : "PROJECT"}
                 </p>
 
-                <h3>{featuredProject.title}</h3>
+                <h3>{project.title}</h3>
 
-                <h4>{featuredProject.subtitle}</h4>
+                <h4>{project.subtitle}</h4>
 
                 <p className="project-description">
-                  {featuredProject.description}
+                  {project.description}
                 </p>
 
                 <div className="project-tech">
-
-                  {featuredProject.technologies.map(
-                    (technology) => (
-                      <span
-                        className="project-tech-item"
-                        key={technology.name}
-                      >
-                        <span className="project-tech-icon">
-                          {technology.icon}
-                        </span>
-
-                        {technology.name}
+                  {project.technologies.map((technology) => (
+                    <span
+                      className="project-tech-item"
+                      key={technology.name}
+                    >
+                      <span className="project-tech-icon">
+                        {technology.icon}
                       </span>
-                    )
-                  )}
 
+                      {technology.name}
+                    </span>
+                  ))}
                 </div>
-
-                <div className="project-actions">
-
-                  <a
-                    href={featuredProject.github}
-                    className="project-button project-github"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub />
-                    GitHub
-                  </a>
-
-                  <a
-                    href={featuredProject.demo}
-                    className="project-button project-demo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaExternalLinkAlt />
-                    Live Demo
-                  </a>
-
-                </div>
-
               </div>
-
             </article>
-
-          </div>
-        )}
-
-
-        {/* Other Projects */}
-        {otherProjects.length > 0 && (
-          <div className="other-projects-grid">
-
-            {otherProjects.map((project) => (
-              <article
-                className="project-card regular-project"
-                key={project.title}
-              >
-
-                <div className="project-image">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} project preview`}
-                  />
-                </div>
-
-                <div className="project-content">
-
-                  <p className="project-label">
-                    PROJECT
-                  </p>
-
-                  <h3>{project.title}</h3>
-
-                  <h4>{project.subtitle}</h4>
-
-                  <p className="project-description">
-                    {project.description}
-                  </p>
-
-                  <div className="project-tech">
-
-                    {project.technologies.map(
-                      (technology) => (
-                        <span
-                          className="project-tech-item"
-                          key={technology.name}
-                        >
-                          <span className="project-tech-icon">
-                            {technology.icon}
-                          </span>
-
-                          {technology.name}
-                        </span>
-                      )
-                    )}
-
-                  </div>
-
-                  <div className="project-actions">
-
-                    <a
-                      href={project.github}
-                      className="project-button project-github"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaGithub />
-                      GitHub
-                    </a>
-
-                    <a
-                      href={project.demo}
-                      className="project-button project-demo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaExternalLinkAlt />
-                      Live Demo
-                    </a>
-
-                  </div>
-
-                </div>
-
-              </article>
-            ))}
-
-          </div>
-        )}
-
+          ))}
+        </div>
       </div>
     </section>
   );

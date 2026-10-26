@@ -1,27 +1,14 @@
-/* ================= ABOUT SECTION ================= */
-
 .about {
   width: 100%;
-
-  padding:
-    clamp(5rem, 10vw, 8rem)
-    clamp(1.5rem, 5vw, 4rem);
-
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
   border-top: 1px solid #1f1f1f;
 }
-
-
-/* ================= SECTION CONTAINER ================= */
 
 .about .section-container {
   width: 100%;
   max-width: 1400px;
-
   margin: 0 auto;
 }
-
-
-/* ================= SECTION HEADING ================= */
 
 .about .section-heading {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
@@ -29,21 +16,15 @@
 
 .about .section-heading > p {
   margin-bottom: 14px;
-
   color: #818cf8;
-
   font-size: 0.8rem;
-
   font-weight: 600;
-
   letter-spacing: 3px;
 }
 
 .about .section-heading h2 {
   max-width: 750px;
-
   font-size: clamp(2rem, 4vw, 3.2rem);
-
   line-height: 1.2;
 }
 
@@ -51,108 +32,95 @@
   color: #6366f1;
 }
 
-
-/* ================= ABOUT CONTENT ================= */
-
 .about-content {
   display: grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(min(100%, 350px), 1fr)
-    );
-
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
   gap: clamp(2.5rem, 6vw, 5rem);
-
   align-items: start;
 }
 
-
-/* ================= ABOUT TEXT ================= */
-
 .about-text {
   display: flex;
-
   flex-direction: column;
-
   gap: 22px;
 }
 
 .about-text p {
   color: #9ca3af;
-
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-
   line-height: 1.9;
 }
 
-
-/* ================= ABOUT CARDS ================= */
-
 .about-cards {
   display: grid;
-
   gap: 16px;
 }
 
-
 .about-card {
   display: flex;
-
   align-items: flex-start;
-
   gap: 20px;
-
   padding: clamp(1.25rem, 3vw, 1.5rem);
-
   background: #111111;
-
   border: 1px solid #242424;
-
   border-radius: 10px;
-
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
-
 
 .about-card:hover {
   border-color: #6366f1;
-
-  background: #131313;
+  background-color: #131313;
 }
-
-
-/* ================= ICON ================= */
 
 .about-icon {
   flex-shrink: 0;
-
   margin-top: 3px;
-
   color: #818cf8;
-
   font-size: 1.35rem;
 }
 
-
-/* ================= CARD CONTENT ================= */
-
 .about-card h3 {
   margin-bottom: 8px;
-
   color: #ffffff;
-
   font-size: 1.05rem;
 }
 
-
 .about-card p {
   color: #9ca3af;
-
   font-size: 0.9rem;
-
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 1.25rem;
+  }
+
+  .about-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .about .section-heading h2 {
+    font-size: clamp(2rem, 7vw, 2.7rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 4rem 1rem;
+  }
+
+  .about-card {
+    gap: 14px;
+    padding: 1.1rem;
+  }
+
+  .about-card h3 {
+    font-size: 1rem;
+  }
+
+  .about-card p {
+    font-size: 0.875rem;
+  }
 }

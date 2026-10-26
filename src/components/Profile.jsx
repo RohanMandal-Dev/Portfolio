@@ -5,55 +5,50 @@ function Profile() {
   return (
     <section className="hero" id="home">
       <div className="hero-container">
-
-        {/* Hero Content */}
         <div className="hero-content">
-
           <p className="hero-greeting">HI, I'M</p>
 
           <h1>
             Rohan <span>Mandal</span>
           </h1>
 
-          <h2>Full Stack Python Developer</h2>
+          <h2>Software Developer</h2>
 
           <div className="availability">
             <span className="availability-dot"></span>
-            Available for Immediate Joining
+            Open to Opportunities
           </div>
 
           <p className="hero-description">
-            Detail-oriented Full Stack Python Developer with hands-on
-            experience building practical web applications using Python,
-            Flask, React.js, Node.js, and databases. Passionate about
-            automation, data processing, and solving real-world problems
-            through technology.
+            Enthusiastic Software Developer with hands-on experience
+            building practical web applications, integrating APIs, and
+            working with databases. Skilled in Python, JavaScript,
+            React.js, PHP, and MySQL. Passionate about problem-solving,
+            learning modern technologies, and developing reliable
+            software solutions.
           </p>
 
-          {/* Buttons */}
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">
               View My Work
               <FaArrowRight />
             </a>
 
-            <a href="/resume.pdf" className="btn btn-secondary">
+            <a href="/resume.pdf" className="btn btn-secondary" download>
               Download Resume
               <FaDownload />
             </a>
           </div>
 
-          {/* Highlighted Technologies */}
           <div className="hero-tech">
             <span>Python</span>
+            <span>JavaScript</span>
             <span>React.js</span>
-            <span>Flask</span>
-            <span>PostgreSQL</span>
+            <span>PHP</span>
+            <span>MySQL</span>
           </div>
-
         </div>
 
-        {/* Profile Image */}
         <div className="hero-image">
           <div className="image-wrapper">
             <img
@@ -62,7 +57,6 @@ function Profile() {
             />
           </div>
         </div>
-
       </div>
     </section>
   );
