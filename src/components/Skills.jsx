@@ -16,6 +16,11 @@ import {
   SiMysql,
   SiMongodb,
   SiPostman,
+  SiFlask,
+  SiDjango,
+  SiPostgresql,
+  SiSelenium,
+  SiPandas,
 } from "react-icons/si";
 
 import "../Styles/Skills.css";
@@ -27,9 +32,9 @@ function Skills() {
       skills: [
         { name: "Python", icon: <FaPython /> },
         { name: "JavaScript", icon: <FaJs /> },
+        { name: "PHP", icon: <SiPhp /> },
       ],
     },
-
     {
       title: "Frontend Development",
       skills: [
@@ -39,25 +44,34 @@ function Skills() {
         { name: "Bootstrap", icon: <FaBootstrap /> },
       ],
     },
-
     {
       title: "Backend Development",
       skills: [
-        { name: "PHP", icon: <SiPhp /> },
+        { name: "Flask", icon: <SiFlask /> },
+        { name: "Django", icon: <SiDjango /> },
         { name: "Node.js", icon: <FaNodeJs /> },
         { name: "Express.js", icon: <SiExpress /> },
         { name: "REST APIs", icon: null },
+        { name: "API Integration", icon: null },
       ],
     },
-
     {
       title: "Databases",
       skills: [
         { name: "MySQL", icon: <SiMysql /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> },
         { name: "MongoDB", icon: <SiMongodb /> },
       ],
     },
-
+    {
+      title: "Automation & Data Processing",
+      skills: [
+        { name: "Selenium", icon: <SiSelenium /> },
+        { name: "Pandas", icon: <SiPandas /> },
+        { name: "Excel Automation", icon: null },
+        { name: "OpenPyXL", icon: null },
+      ],
+    },
     {
       title: "Development Tools",
       skills: [
@@ -77,7 +91,6 @@ function Skills() {
       <div className="section-container">
         <div className="section-heading">
           <p>TECHNICAL SKILLS</p>
-
           <h2>
             Technologies I use to build
             <span> practical solutions.</span>
@@ -93,9 +106,7 @@ function Skills() {
                 {category.skills.map((skill) => (
                   <div className="skill-item" key={skill.name}>
                     {skill.icon && (
-                      <span className="skill-icon">
-                        {skill.icon}
-                      </span>
+                      <span className="skill-icon">{skill.icon}</span>
                     )}
 
                     <span>{skill.name}</span>

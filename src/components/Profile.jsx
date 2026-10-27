@@ -1,10 +1,16 @@
-import { FaArrowRight, FaDownload } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaDownload,
+  FaGithub,
+} from "react-icons/fa";
+
 import "../Styles/Profile.css";
 
 function Profile() {
   return (
     <section className="hero" id="home">
       <div className="hero-container">
+        {/* Hero Content */}
         <div className="hero-content">
           <p className="hero-greeting">HI, I'M</p>
 
@@ -12,7 +18,7 @@ function Profile() {
             Rohan <span>Mandal</span>
           </h1>
 
-          <h2>Software Developer</h2>
+          <h2>Full Stack-Developer</h2>
 
           <div className="availability">
             <span className="availability-dot"></span>
@@ -28,18 +34,35 @@ function Profile() {
             software solutions.
           </p>
 
+          {/* Hero Buttons */}
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">
               View My Work
               <FaArrowRight />
             </a>
 
-            <a href="/resume.pdf" className="btn btn-secondary" download>
+            <a
+              href="/resume.pdf"
+              className="btn btn-secondary"
+              download="Rohan_Mandal_Resume.pdf"
+            >
               Download Resume
               <FaDownload />
             </a>
+
+            <a
+              href="https://github.com/RohanMandal-Dev"
+              className="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit my GitHub profile"
+            >
+              <FaGithub />
+              GitHub Profile
+            </a>
           </div>
 
+          {/* Technologies */}
           <div className="hero-tech">
             <span>Python</span>
             <span>JavaScript</span>
@@ -49,11 +72,12 @@ function Profile() {
           </div>
         </div>
 
+        {/* Profile Image */}
         <div className="hero-image">
           <div className="image-wrapper">
             <img
               src="/Profile.jpeg"
-              alt="Rohan Mandal"
+              alt="Portrait of Rohan Mandal"
             />
           </div>
         </div>

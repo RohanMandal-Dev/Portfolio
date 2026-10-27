@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import {
   FaGithub,
-  FaLinkedinIn,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
@@ -39,14 +38,23 @@ function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
     };
   }, []);
+
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Education", id: "education" },
+    { label: "Certifications", id: "certifications" },
+    { label: "Contact", id: "contact" },
+  ];
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-
         {/* Logo */}
         <a
           href="#home"
@@ -56,160 +64,74 @@ function Navbar() {
           Rohan<span>.dev</span>
         </a>
 
-
         {/* Desktop Navigation */}
         <div className="nav-links">
-          <a
-            href="#home"
-            className={activeSection === "home" ? "active" : ""}
-          >
-            Home
-          </a>
-
-          <a
-            href="#about"
-            className={activeSection === "about" ? "active" : ""}
-          >
-            About
-          </a>
-
-          <a
-            href="#skills"
-            className={activeSection === "skills" ? "active" : ""}
-          >
-            Skills
-          </a>
-
-          <a
-            href="#projects"
-            className={activeSection === "projects" ? "active" : ""}
-          >
-            Projects
-          </a>
-
-          <a
-            href="#education"
-            className={activeSection === "education" ? "active" : ""}
-          >
-            Education
-          </a>
-
-          <a
-            href="#certifications"
-            className={
-              activeSection === "certifications" ? "active" : ""
-            }
-          >
-            Certifications
-          </a>
-
-          <a
-            href="#contact"
-            className={activeSection === "contact" ? "active" : ""}
-          >
-            Contact
-          </a>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={
+                activeSection === item.id ? "active" : ""
+              }
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
 
-
-        {/* Social Icons */}
+        {/* GitHub Social Link */}
         <div className="nav-socials">
-
           <a
-            href="https://github.com/rohanmandal"
+            href="https://github.com/RohanMandal-Dev"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label="Visit GitHub profile"
+            title="GitHub Profile"
           >
             <FaGithub />
           </a>
-
-          <a
-            href="https://linkedin.com/in/rohanmandal"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn />
-          </a>
-
         </div>
-
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
-
       </div>
 
-
       {/* Mobile Navigation */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+      <div
+        id="mobile-navigation"
+        className={`mobile-menu ${menuOpen ? "open" : ""}`}
+      >
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={
+              activeSection === item.id ? "active" : ""
+            }
+            onClick={closeMenu}
+          >
+            {item.label}
+          </a>
+        ))}
 
+        {/* GitHub link in mobile menu */}
         <a
-          href="#home"
-          className={activeSection === "home" ? "active" : ""}
+          href="https://github.com/RohanMandal-Dev"
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={closeMenu}
         >
-          Home
+          <FaGithub /> GitHub Profile
         </a>
-
-        <a
-          href="#about"
-          className={activeSection === "about" ? "active" : ""}
-          onClick={closeMenu}
-        >
-          About
-        </a>
-
-        <a
-          href="#skills"
-          className={activeSection === "skills" ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Skills
-        </a>
-
-        <a
-          href="#projects"
-          className={activeSection === "projects" ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Projects
-        </a>
-
-        <a
-          href="#education"
-          className={activeSection === "education" ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Education
-        </a>
-
-        <a
-          href="#certifications"
-          className={
-            activeSection === "certifications" ? "active" : ""
-          }
-          onClick={closeMenu}
-        >
-          Certifications
-        </a>
-
-        <a
-          href="#contact"
-          className={activeSection === "contact" ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Contact
-        </a>
-
       </div>
     </nav>
   );

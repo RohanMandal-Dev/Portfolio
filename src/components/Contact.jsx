@@ -1,7 +1,6 @@
 import {
   FaEnvelope,
   FaPhone,
-  FaLinkedinIn,
   FaGithub,
   FaMapMarkerAlt,
 } from "react-icons/fa";
@@ -19,41 +18,36 @@ function Contact() {
     {
       icon: <FaPhone />,
       label: "Phone",
-      value: "+91 9082456966",
+      value: "9082456966",
       link: "tel:+919082456966",
     },
     {
       icon: <FaMapMarkerAlt />,
       label: "Location",
-      value: "Mumbai, Maharashtra, India",
-      link: "https://www.google.com/maps/search/?api=1&query=Mumbai%2C+Maharashtra%2C+India",
-    },
-    {
-      icon: <FaLinkedinIn />,
-      label: "LinkedIn",
-      value: "linkedin.com/in/rohanmandal",
-      link: "https://linkedin.com/in/rohanmandal",
+      value: "Kurla (West), Mumbai, Maharashtra, India",
+      link: "https://www.google.com/maps/search/?api=1&query=Kurla+West%2C+Mumbai%2C+Maharashtra",
     },
     {
       icon: <FaGithub />,
       label: "GitHub",
-      value: "github.com/rohanmandal",
-      link: "https://github.com/rohanmandal",
+      value: "github.com/RohanMandal-Dev",
+      link: "https://github.com/RohanMandal-Dev",
     },
   ];
 
   return (
     <section className="contact" id="contact">
       <div className="section-container">
+        {/* Section Heading */}
         <div className="section-heading">
           <p>GET IN TOUCH</p>
-
           <h2>
             Let's build something
             <span> together.</span>
           </h2>
         </div>
 
+        {/* Introduction */}
         <p className="contact-intro">
           I'm a Software Developer interested in building practical
           applications, solving problems, and learning new technologies.
@@ -62,6 +56,7 @@ function Contact() {
         </p>
 
         <div className="contact-content">
+          {/* Contact Information */}
           <div className="contact-info">
             <div className="contact-list">
               {contactDetails.map((item) => (
@@ -70,34 +65,28 @@ function Contact() {
                   key={item.label}
                   className="contact-item"
                   target={
-                    ["LinkedIn", "GitHub", "Location"].includes(item.label)
+                    ["GitHub", "Location"].includes(item.label)
                       ? "_blank"
                       : undefined
                   }
                   rel={
-                    ["LinkedIn", "GitHub", "Location"].includes(item.label)
+                    ["GitHub", "Location"].includes(item.label)
                       ? "noopener noreferrer"
                       : undefined
                   }
                 >
-                  <span className="contact-icon">
-                    {item.icon}
-                  </span>
+                  <span className="contact-icon">{item.icon}</span>
 
                   <span className="contact-item-content">
-                    <span className="contact-label">
-                      {item.label}
-                    </span>
-
-                    <span className="contact-value">
-                      {item.value}
-                    </span>
+                    <span className="contact-label">{item.label}</span>
+                    <span className="contact-value">{item.value}</span>
                   </span>
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Email Contact Card */}
           <div className="contact-card">
             <div className="contact-card-icon">
               <FaEnvelope />
@@ -111,9 +100,7 @@ function Contact() {
             </p>
 
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=er.rohanmandal@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:er.rohanmandal@gmail.com?subject=Job%20Opportunity%20-%20Software%20Developer"
               className="contact-button"
             >
               Send Me an Email

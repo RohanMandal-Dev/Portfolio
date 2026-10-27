@@ -1,38 +1,34 @@
-import { FaCertificate, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaCertificate,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
+
 import "../Styles/Certifications.css";
 
 function Certifications() {
   const certifications = [
     {
-      title: "Python Programming",
-      issuer: "Issuing Organization",
+      title: "Python Full Stack Developer",
+      issuer: "CNC Web World",
       year: "2026",
-      certificate: "/certificates/python.pdf",
+      description:
+        "Professional training in Python full-stack development.",
+      certificate:
+        "https://drive.google.com/file/d/1BjginDr_Kb49n43m6Z24T12fGMoiinsK/view?usp=sharing",
     },
-    {
-      title: "Web Development",
-      issuer: "Issuing Organization",
-      year: "2026",
-      certificate: "/certificates/web-development.pdf",
-    },
-    {
-      title: "SQL & Database",
-      issuer: "Issuing Organization",
-      year: "2026",
-      certificate: "/certificates/sql.pdf",
-    },
+
+    // Add more verified certificates here when you're ready.
   ];
 
   return (
     <section className="certifications" id="certifications">
       <div className="section-container">
-
         <div className="section-heading">
           <p>CERTIFICATIONS</p>
 
           <h2>
-            Courses and certifications that support my
-            <span> technical growth.</span>
+            Learning, building, and growing my
+            <span> technical skills.</span>
           </h2>
         </div>
 
@@ -49,18 +45,25 @@ function Certifications() {
               <h3>{certificate.title}</h3>
 
               <p className="certificate-issuer">
-                {certificate.issuer}
+                Issued by {certificate.issuer}
               </p>
 
               <span className="certificate-year">
                 {certificate.year}
               </span>
 
+              {certificate.description && (
+                <p className="certificate-description">
+                  {certificate.description}
+                </p>
+              )}
+
               <a
                 href={certificate.certificate}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="certificate-link"
+                aria-label={`View ${certificate.title} certificate`}
               >
                 View Certificate
                 <FaExternalLinkAlt />
@@ -68,7 +71,6 @@ function Certifications() {
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );
